@@ -15,6 +15,10 @@ namespace CommandAPI.Controllers
             _context = context ;
         }
 
+        /// <summary>
+        /// Get all commands
+        /// </summary>
+        /// <returns></returns>
         //GET:      api/commands
         [HttpGet]
         public ActionResult<IEnumerable<Command>> GetCommandItems()
@@ -22,6 +26,11 @@ namespace CommandAPI.Controllers
             return _context.CommandItems;
         }
 
+        /// <summary>
+        /// Get commands by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         //GET:      api/commands/n
         [HttpGet("{id}")]
         public ActionResult<Command> GetCommandItem(int id)
@@ -34,6 +43,11 @@ namespace CommandAPI.Controllers
             return commandItem;
         }
 
+        /// <summary>
+        /// Create a command
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         //POST:     api/commands
         [HttpPost]
         public ActionResult<Command> PostCommandItem(Command command)

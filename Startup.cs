@@ -31,6 +31,7 @@ namespace CommandAPI
             services.AddMvc(options => options.EnableEndpointRouting = false);
             //services.AddRazorPages();
             //services.AddRazorPages().AddMvcOptions(options => options.EnableEndpointRouting = false);
+            services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,21 +42,24 @@ namespace CommandAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseRouting();
-            //app.UseAuthorization();
-            //app.UseEndpoints(enpoints =>
-            //{
-            //    enpoints.MapRazorPages();
-            //});
+            app.UseRouting();
+            app.UseAuthorization();
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
+
+            app.UseEndpoints(enpoints =>
+            {
+                enpoints.MapRazorPages();
+            });
             app.UseMvc();
 
-            ////app.UseEndpoints(endpoints =>
-            ////{
-            ////    endpoints.MapGet("/", async context =>
-            ////    {
-            ////        await context.Response.WriteAsync("Hello World!");
-            ////    });
-            ////});
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapGet("/", async context =>
+                {
+                    await context.Response.WriteAsync("Hello World!");
+                });
+            });
         }
     }
 }
