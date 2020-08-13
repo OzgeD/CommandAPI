@@ -10,5 +10,19 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:CommandAPI.Controllers.CommandsController.GetCommandItem(System.Int32)">
+            <summary>
+            Get commands by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommandAPI.Controllers.CommandsController.PostCommandItem(CommandAPI.Models.Command)">
+            <summary>
+            Create a command
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
